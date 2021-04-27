@@ -27,7 +27,6 @@ Meteor.methods({
         if (privateOrPublic == "Public") {
             private = false;
         }
-        console.log(getPriority);
         Tasks.insert({
             text,
             createdDate: new Date().toLocaleDateString("en-US").replace(/-/gi, "/"),

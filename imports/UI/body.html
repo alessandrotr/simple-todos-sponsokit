@@ -6,7 +6,6 @@
             {{#if currentUser}}
             <form class="new-task">
                 <input type="text" name="text" placeholder="Type to add new tasks" />
-
                 <select id="privateOrPublic" name="privateOrPublic">
                   {{#each privateOrPublic}}
                       <option value="{{this}}">{{this}}</option>
@@ -18,7 +17,6 @@
                         <option value="{{this}}">{{this}}</option>
                     {{/each}}
                 </select>
-
             </form>
           {{/if}}
       </header>
@@ -28,7 +26,6 @@
           <input type="checkbox" />
               Hide Completed Tasks
           </label></div>
-      
       </section>
       <ul>
         {{#each tasks}}

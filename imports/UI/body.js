@@ -42,7 +42,6 @@ Template.body.events({
         const text = target.text.value;
         const privateOrPublic = target.privateOrPublic.value;
         const priority = target.priority.value;
-        console.log(privateOrPublic);
         // Insert a task into the collection
         Meteor.call('tasks.insert', text, privateOrPublic, priority);
         // Clear form
