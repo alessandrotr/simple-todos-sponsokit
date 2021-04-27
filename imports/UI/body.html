@@ -1,0 +1,40 @@
+<body>
+    <div class="container">
+      <header>
+        <h1>To-do List</h1>
+        <div class="login">{{> loginButtons}}</div>
+            {{#if currentUser}}
+            <form class="new-task">
+                <input type="text" name="text" placeholder="Type to add new tasks" />
+
+                <select id="privateOrPublic" name="privateOrPublic">
+                  {{#each privateOrPublic}}
+                      <option value="{{this}}">{{this}}</option>
+                  {{/each}}
+                </select>
+
+                  <select id="priority" name="priority">
+                    {{#each getPriority}}
+                        <option value="{{this}}">{{this}}</option>
+                    {{/each}}
+                </select>
+
+            </form>
+          {{/if}}
+      </header>
+      <section>
+        <div>Total Tasks: {{incompleteCount}}</div>
+        <div><label class="hide-completed">
+          <input type="checkbox" />
+              Hide Completed Tasks
+          </label></div>
+      
+      </section>
+      <ul>
+        {{#each tasks}}
+          {{> task}}
+        {{/each}}
+      </ul>
+    </div>
+  </body>
+

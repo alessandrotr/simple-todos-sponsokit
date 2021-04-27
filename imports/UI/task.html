@@ -1,0 +1,58 @@
+<template name="task">
+  {{#let name=priority}}
+    <li class="{{#if checked}}checked{{/if}}
+               {{#if private}}private{{/if}}
+               {{#if equals 0 name}}yellow{{/if}}
+               {{#if equals 1 name}}orange{{/if}}
+               {{#if equals 2 name}}red{{/if}}">
+
+        <!-- Delete Button -->
+        <button class="delete">&times;</button>
+
+         <!-- Completed Tasks Checkbox -->
+         <div class="toggle-checked">
+          <input type="checkbox" checked="{{checked}}" />
+        </div>
+
+        <!-- Toggle Private Mode Button -->
+        {{#if isOwner}}
+        <button class="toggle-private">
+          {{#if private}}
+            Make public
+          {{else}}
+          Make private
+          {{/if}}
+        </button>
+      {{/if}}
+
+        <!-- Task Username -->
+        
+        <span class="date">{{createdDate}}</span>
+        <span class="username"><strong>{{username}}</strong></span>
+        <span class="time">{{createdTime}}</span>
+      
+
+        <!-- Priority Select -->
+        {{#if isOwner}}
+        <span class="priority">
+          Priority:
+          <select id="priority-select">
+            {{#let name=priority}}
+            {{#each getPriority}}
+                <option value="{{this}}" selected="{{#if equals this name}}selected{{/if}}">{{this}}</option>
+            {{/each}}
+            {{/let}}
+        </select>
+        </span>
+      {{/if}}
+
+      <!-- Task Text -->
+      <p class="content">{{text}}</p>
+
+        
+
+    </li>
+    {{/let}}
+
+</template>
+
